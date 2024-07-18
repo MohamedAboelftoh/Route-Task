@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="product"
+            type="com.example.domain.models.product.ProductsItem" />
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:elevation="33dp"
+        app:cardCornerRadius="10dp"
+        app:strokeWidth="2dp"
+        app:strokeColor="#8B9DAE">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/product_img"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:scaleType="fitXY"
+                app:url="@{product.thumbnail}"
+                android:src="@drawable/img_product" />
+
+            <ImageView
+                android:id="@+id/favorite_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/favorite_icon"
+                android:adjustViewBounds="true"
+                app:layout_constraintTop_toTopOf="@id/product_img"
+                app:layout_constraintEnd_toEndOf="@id/product_img" />
+
+            <TextView
+                android:id="@+id/product_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/product_img"
+                app:layout_constraintStart_toStartOf="@id/product_img"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:gravity="start"
+                tools:text="implement the"
+                android:text="@{product.title}"
+                android:textSize="15sp"
+                android:textColor="@color/textColors"
+                android:textStyle="bold"
+                android:layout_marginStart="10dp" />
+
+            <TextView
+                android:id="@+id/product_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/product_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/product_img"
+                android:gravity="start"
+                tools:text="implement the following..."
+                android:maxLines="1"
+                android:textSize="15sp"
+                android:textColor="@color/textColors"
+                android:textStyle="bold"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="10dp" />
+
+            <TextView
+                android:id="@+id/product_price"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/product_description"
+                app:layout_constraintStart_toStartOf="@id/product_img"
+                app:layout_constraintEnd_toStartOf="@id/product_discount"
+                android:gravity="start"
+                tools:text="EGP 1,800"
+                android:text="@{product.price}"
+                android:textSize="15sp"
+                android:textColor="@color/textColors"
+                android:textStyle="bold"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="10dp" />
+
+            <TextView
+                android:id="@+id/product_discount"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/product_price"
+                app:layout_constraintTop_toBottomOf="@id/product_description"
+                app:layout_constraintEnd_toStartOf="@+id/add_img"
+                android:gravity="start"
+                android:text="@{product.discountPercentage}"
+                android:textSize="13sp"
+                android:textColor="#6BB4EE"
+                android:textStyle="bold"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="10dp" />
+
+            <TextView
+                android:id="@+id/product_rate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/product_price"
+                app:layout_constraintStart_toStartOf="@id/product_img"
+                android:gravity="start"
+                tools:text="Review (3.3)"
+                android:text="@{product.rating}"
+                android:textSize="13sp"
+                android:textColor="@color/textColors"
+                android:textStyle="bold"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="10dp"
+                android:paddingBottom="10dp" />
+
+            <ImageView
+                android:id="@+id/rate_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/rate_icon"
+                android:adjustViewBounds="true"
+                app:layout_constraintStart_toEndOf="@id/product_rate"
+                app:layout_constraintTop_toBottomOf="@id/product_price"
+                app:layout_constraintBottom_toBottomOf="@id/product_rate"
+                android:layout_margin="5dp"
+                android:layout_marginStart="5dp"
+                android:paddingBottom="8dp"
+                />
+
+            <ImageView
+                android:id="@+id/add_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/add_icon"
+                android:backgroundTint="@color/primaryColor"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_margin="5dp"
+                android:background="@drawable/img_favorite_background" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>
+
+
